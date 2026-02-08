@@ -53,13 +53,13 @@ public class Server {
 
     private String receivingMessage(User user) throws IOException {
         String receivedMessage = in.readUTF();
-        System.out.println(user.getName() + ": " + receivedMessage);
+        System.out.println(user.name() + ": " + receivedMessage);
         return receivedMessage;
     }
 
     private User createUser(Socket client) throws IOException {
         User user = new User(in.readUTF(), client);
-        System.out.println("Usuario {" + user.getName() + "} conectado");
+        System.out.println("Usuario {" + user.name() + "} conectado");
         return user;
     }
 

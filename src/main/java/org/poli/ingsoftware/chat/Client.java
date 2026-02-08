@@ -24,9 +24,9 @@ public class Client {
 
     private String sendingMessage(User user) {
         try {
-            System.out.println(user.getName() + ": ");
+            System.out.println(user.name() + ": ");
             String message = sc.nextLine();
-            out.writeUTF(user.getName() + ": " + message);
+            out.writeUTF(user.name() + ": " + message);
             return message;
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -60,7 +60,7 @@ public class Client {
     private User createUser() throws IOException {
         System.out.println(ClientConstants.TYPE_YOUR_USER_NAME);
         User user = new User(sc.nextLine(), socket);
-        out.writeUTF(user.getName());
+        out.writeUTF(user.name());
         return user;
     }
 
